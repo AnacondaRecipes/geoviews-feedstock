@@ -12,6 +12,8 @@ build:
   number: 0
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
+  entry_points:
+    - geoviews = geoviews.__main__:main
 
 requirements:
   build:
