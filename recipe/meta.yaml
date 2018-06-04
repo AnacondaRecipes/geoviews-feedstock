@@ -29,6 +29,8 @@ requirements:
     - jupyter
     - notebook
     - bokeh >=0.12.13
+  run_constrained:
+    - netcdf4 <1.4.0
 
 test:
   imports:
