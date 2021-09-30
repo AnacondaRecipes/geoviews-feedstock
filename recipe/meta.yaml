@@ -1,4 +1,4 @@
-{% set version = "1.9.1" %}
+{% set version = "1.9.2" %}
 
 package:
   name: geoviews-core
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/holoviz/geoviews/archive/v{{ version }}.tar.gz
-  sha256: 458bbe40b4bbf7bba5ef7b99d89a28618c024102545bc03687b6659368b335ed
+  sha256: adabb49a38876df67a20885b8ac98cba02aee27083279f3e9d2af0c45a58cc6d
 
 build:
   number: 0
