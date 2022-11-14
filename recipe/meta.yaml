@@ -10,6 +10,8 @@ source:
 
 build:
   number: 0
+  # nodejs and cartopy aren't available on s390x
+  skip: True  # [s390x]
 
 outputs:
   - name: geoviews-core
