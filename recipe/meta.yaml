@@ -67,6 +67,7 @@ outputs:
       - pandas
       - pyct >0.4.4
       - xarray
+      - packaging
     test:
       imports:
         - geoviews
