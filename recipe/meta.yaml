@@ -68,6 +68,8 @@ outputs:
       - pyct >0.4.4
       - xarray
       - packaging
+      - pip
+      - wheel
     test:
       imports:
         - geoviews
