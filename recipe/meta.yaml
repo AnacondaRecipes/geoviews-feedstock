@@ -24,21 +24,23 @@ outputs:
       host:
         - python
         - pip
-        - param >=1.9.0
+        - param >=1.9.2
         # These are also needed at build time and declared in the pyproject.toml
+        - pyviz_comms >=0.6.0
         - pyct >=0.4.4
         - bokeh >=2.4.0,<2.5.0
         - nodejs >=10.13.0
         - wheel
         - cartopy >=0.18.0
         - setuptools >=30.3.0
+        - packaging
       run:
         - python
         - bokeh >=2.4.0,<2.5.0
         - cartopy >=0.18.0
         - holoviews >=1.14.2
         - numpy  >=1.0
-        - param >=1.9.3
+        - param >=1.9.2
     test:
       requires:
         - pip
@@ -56,14 +58,16 @@ outputs:
       - cartopy >=0.18.0
       - holoviews >=1.14.2
       - numpy >=1.0
-      - param >=1.9.3,<2.0
+      - param >=1.9.2
       - {{ pin_subpackage('geoviews-core', max_pin="x.x.x.x") }}
+      - pyviz_comms >=0.6.0
       - datashader
       - geopandas
       - netcdf4
       - pandas
       - pyct
       - xarray
+      - packaging
     test:
       imports:
         - geoviews
