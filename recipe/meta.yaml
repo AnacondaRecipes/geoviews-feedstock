@@ -15,14 +15,14 @@ outputs:
   - name: geoviews-core
     script: build_base.sh
     build:
-      skip: True  # [py<36]
+      skip: true  # [py<37]
       entry_points:
         - geoviews = geoviews.__main__:main
     requirements:
       run_constrained:
         - geoviews {{ version }}
       host:
-        - python >=3.7
+        - python
         - pip
         - param >=1.9.0
         # These are also needed at build time and declared in the pyproject.toml
