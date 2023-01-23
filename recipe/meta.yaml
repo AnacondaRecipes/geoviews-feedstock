@@ -5,8 +5,8 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/holoviz/geoviews/archive/v{{ version }}.tar.gz
-  sha256: 1da091e643c6522d7a8d8baabda49111aabbd6b1bf04476ebfad9fe7f7d10d87
+  url: https://pypi.io/packages/source/g/geoviews/geoviews-{{ version }}.tar.gz
+  sha256: e2ab66626fb57434ede7670ed8b2b2e8331919dbec78edb4d1d1646dfa0c73e7
 
 build:
   number: 0
