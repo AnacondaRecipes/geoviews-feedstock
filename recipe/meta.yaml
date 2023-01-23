@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/holoviz/geoviews/archive/v{{ version }}.tar.gz
-  sha256: e2ab66626fb57434ede7670ed8b2b2e8331919dbec78edb4d1d1646dfa0c73e7
+  sha256: 1da091e643c6522d7a8d8baabda49111aabbd6b1bf04476ebfad9fe7f7d10d87
 
 build:
   number: 0
@@ -50,24 +50,15 @@ outputs:
 
   - name: geoviews
     build:
-      skip: true  # [py>39]
+      skip: true  # [py>37]
     requirements:
-      # host:
-      #   - python >=3.7
-      #   - pip
-      #   - param >=1.9.3,<2.0
-      #   - pyct
-      #   - bokeh >=2.4.0,<2.5.0
-      #   - wheel
-      #   - cartopy >=0.18.0
-      #   - setuptools
       run:
         - python
         - holoviews >=1.14.2
         - numpy >=1.0
-        - {{ pin_subpackage('geoviews-core', exact=True) }}
+        - {{ pin_subpackage('geoviews-core', max_pin="x.x.x.x"  ) }}
         - datashader
-        - geopandas
+        - geopandas-base
         - netcdf4
         - pandas
         - xarray
