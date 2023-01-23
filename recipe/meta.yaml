@@ -33,11 +33,11 @@ outputs:
         - cartopy >=0.18.0
         - setuptools >=30.3.0
       run:
-        - python >=3.7
+        - python
         - bokeh >=2.4.0,<2.5.0
         - cartopy >=0.18.0
         - holoviews >=1.14.2
-        - numpy  >=1.0
+        - numpy >=1.0
         - param >=1.9.3
         - packaging
     test:
@@ -50,31 +50,39 @@ outputs:
 
   - name: geoviews
     build:
-      skip: True  # [py<36]
+      skip: true  # [py>39]
     requirements:
-      - python >=3.7
-      - bokeh >=2.4.0,<2.5.0
-      - cartopy >=0.18.0
-      - holoviews >=1.14.2
-      - numpy >=1.0
-      - param >=1.9.3,<2.0
-      - {{ pin_subpackage('geoviews-core', max_pin="x.x.x.x") }}
-      - datashader
-      - geopandas
-      - netcdf4
-      - pandas
-      - pyct
-      - xarray
+      # host:
+      #   - python >=3.7
+      #   - pip
+      #   - param >=1.9.3,<2.0
+      #   - pyct
+      #   - bokeh >=2.4.0,<2.5.0
+      #   - wheel
+      #   - cartopy >=0.18.0
+      #   - setuptools
+      run:
+        - python
+        - holoviews >=1.14.2
+        - numpy >=1.0
+        - {{ pin_subpackage('geoviews-core', exact=True) }}
+        - datashader
+        - geopandas
+        - netcdf4
+        - pandas
+        - xarray
     test:
       imports:
         - geoviews
       requires:
         - nbsmoke
         - pytest
+        - pip
       commands:
+        - pip check
         - geoviews examples --path=. --force
         # just run one notebook for now; increase in the future if notebooks can be run quickly with test/tiny data
-        - pytest --nbsmoke-run -k ".ipynb" user_guide/Geometries.ipynb
+        - pytest --nbsmoke-run -k ".ipynb" user_guide/Projections.ipynb
     about:
       home: https://geoviews.org
       license: BSD-3-Clause
