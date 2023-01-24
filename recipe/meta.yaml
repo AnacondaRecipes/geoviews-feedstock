@@ -65,11 +65,11 @@ outputs:
         - python
         - holoviews >=1.14.2
         - numpy >=1.0
-        - {{ pin_subpackage('geoviews-core', max_pin="x.x.x.x") }}
+        - {{ pin_subpackage('geoviews-core', exact=True) }}
         - datashader
         - geopandas
         - netcdf4
-        # - pandas
+        - pandas
         - xarray
     test:
       imports:
