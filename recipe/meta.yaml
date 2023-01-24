@@ -74,11 +74,6 @@ outputs:
         - geoviews examples --path=. --force
         # just run one notebook for now; increase in the future if notebooks can be run quickly with test/tiny data
         - pytest --nbsmoke-run -k ".ipynb" user_guide/Projections.ipynb
-    about:
-      home: https://geoviews.org
-      license: BSD-3-Clause
-      license_file: LICENSE
-      summary: GeoViews is a Python library that makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets, such as those used in weather, climate, and remote sensing research.
 
 about:
   home: https://geoviews.org
@@ -89,3 +84,5 @@ extra:
   recipe-maintainers:
     - ocefpaf
     - philippjfr
+    - maximlt
+    - Hoxbro
