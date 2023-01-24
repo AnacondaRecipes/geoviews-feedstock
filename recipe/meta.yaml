@@ -69,7 +69,7 @@ outputs:
         - datashader
         - geopandas
         - netcdf4
-        - pandas
+        # - pandas
         - xarray
     test:
       imports:
