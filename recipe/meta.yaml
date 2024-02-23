@@ -61,14 +61,6 @@ outputs:
         - wheel
       run:
         - python
-        - bokeh >=3.2.0,<3.4.0
-        - cartopy >=0.18.0
-        - holoviews >=1.16.0
-        - numpy  >=1.0
-        - param >=1.9.3
-        - panel >=1.0.0
-        - pyproj
-        - packaging
         - {{ pin_subpackage('geoviews-core', exact=True) }}
         - datashader
         - geopandas-base
@@ -76,6 +68,8 @@ outputs:
         - pandas
         - pyct
         - xarray
+        - shapely
+        - scipy
         - pooch
     test:
       imports:
