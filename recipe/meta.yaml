@@ -30,17 +30,17 @@ outputs:
         - setuptools
         - wheel
         - packaging
-        - param >=1.9.0
+        - param >=1.9.0,<3.0
         - pyct 0.5.0
         - bokeh =3.3
-        - nodejs 16.13.1
+        - nodejs 18.16
       run:
         - python
         - bokeh >=3.2.0,<3.4.0
         - cartopy >=0.21.1
         - holoviews >=1.16.0
         - numpy >=1.0
-        - param >=2.0.0,<3.0
+        - param >=1.9.0,<3.0
         - panel >=1.0.0
         - pyproj
         - packaging
