@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   #skip s390x as lack of nodejs and cartopy dependencies
-  skip: True  # [py<310 or s390x]
+  skip: True  # [py<39 or s390x]
 requirements:
   host:
     - python
@@ -24,6 +24,7 @@ outputs:
     script: build_base.sh # [not win]
     script: build_base.bat # [win]
     build:
+      skip: True  # [py<39 or s390x]
       entry_points:
         - geoviews = geoviews.__main__:main
     requirements:
@@ -39,6 +40,7 @@ outputs:
         - pyct 0.5.0
         - bokeh >=3.3.0,<3.4
         - nodejs 18.16
+        - pyviz_comms >=0.6.0
       run:
         - python
         - bokeh =3.3
@@ -60,6 +62,8 @@ outputs:
         - {{ name }}
 
   - name: {{ name }}
+    build:
+      skip: True  # [py<39 or s390x]
     requirements:
       host:
         - python
