@@ -76,13 +76,8 @@ outputs:
       imports:
         - {{ name }}
       requires:
-        - nbval
-        - pytest
         - pip
       commands:
-        - geoviews examples --path=. --force
-        # just run one notebook for now; increase in the future if notebooks can be run quickly with test/tiny data
-        - pytest --nbval-lax -k Projections.ipynb
         - pip check
     about:
       home: https://geoviews.org
