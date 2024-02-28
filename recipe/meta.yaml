@@ -44,6 +44,8 @@ outputs:
         - panel >=1.0.0
         - pyproj
         - packaging
+        - shapely
+        - xyzservices
     test:
       requires:
         - pip
@@ -68,7 +70,6 @@ outputs:
         - pandas
         - pyct
         - xarray
-        - shapely
         - scipy
         - pooch
     test:
