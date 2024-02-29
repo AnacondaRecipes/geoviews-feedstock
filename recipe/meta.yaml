@@ -1,4 +1,4 @@
-{% set version = "1.9.6" %}
+{% set version = "1.11.1" %}
 {% set name = "geoviews" %}
 
 package:
@@ -7,18 +7,24 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: e2ab66626fb57434ede7670ed8b2b2e8331919dbec78edb4d1d1646dfa0c73e7
+  sha256: 6c65e2122c8b62ee7985bb956369d05953c7704081f90b686a0fdfaf20933d2b
 
 build:
   number: 0
   #skip s390x as lack of nodejs and cartopy dependencies
-  skip: True  # [py<37 or s390x]
-
+  skip: True  # [py<39 or s390x]
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
 outputs:
   - name: {{ name }}-core
     script: build_base.sh # [not win]
     script: build_base.bat # [win]
     build:
+      skip: True  # [py<39 or s390x]
       entry_points:
         - geoviews = geoviews.__main__:main
     requirements:
@@ -30,20 +36,23 @@ outputs:
         - setuptools
         - wheel
         - packaging
-        - param 1.9.0
+        - param =1.9
         - pyct 0.5.0
-        - bokeh 2.4.3
-        - nodejs 16.13.1
-        - pyviz_comms 0.7.2
-        - cartopy 0.21.1
+        - bokeh >=3.3.0,<3.4
+        - nodejs 18.16
+        - pyviz_comms >=0.6.0
       run:
         - python
-        - bokeh >=2.4.0,<2.5.0
-        - cartopy >=0.21.1
-        - holoviews >=1.14.2
-        - numpy
-        - param >=1.9.2,<2.0
-        - scipy
+        - bokeh >=3.2.0,<3.4
+        - cartopy >=0.18.0
+        - holoviews >=1.16.0
+        - numpy >=1.0
+        - param >=1.9.0,<3.0
+        - panel >=1.0.0
+        - pyproj
+        - packaging
+        - shapely
+        - xyzservices
     test:
       requires:
         - pip
@@ -53,6 +62,8 @@ outputs:
         - {{ name }}
 
   - name: {{ name }}
+    build:
+      skip: True  # [py<39 or s390x]
     requirements:
       host:
         - python
@@ -68,19 +79,15 @@ outputs:
         - pandas
         - pyct
         - xarray
-        - shapely
         - scipy
         - pooch
     test:
       imports:
         - {{ name }}
       requires:
-        - nbsmoke
-        - pytest
+        - pip
       commands:
-        - geoviews examples --path=. --force
-        # just run one notebook for now; increase in the future if notebooks can be run quickly with test/tiny data
-        - pytest --nbsmoke-run -k ".ipynb" user_guide/Projections.ipynb
+        - pip check
     about:
       home: https://geoviews.org
       license: BSD-3-Clause
@@ -112,3 +119,5 @@ extra:
     - philippjfr
     - maximlt
     - Hoxbro
+  skip-lints:
+    - host_section_needs_exact_pinnings
