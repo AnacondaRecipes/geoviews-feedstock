@@ -24,14 +24,14 @@ outputs:
     script: build_base.sh # [not win]
     script: build_base.bat # [win]
     build:
-      skip: True  # [py<39 or s390x]
+      skip: True  # [py<310 or s390x]
       entry_points:
         - geoviews = geoviews.__main__:main
     requirements:
       run_constrained:
         - {{ name }} {{ version }}
       host:
-        - python >=3.10
+        - python
         - pip
         - setuptools
         - wheel
@@ -41,7 +41,7 @@ outputs:
         - hatchling
         - hatch-vcs
       run:
-        - python >=3.10
+        - python
         - bokeh >=3.5.0,<3.6.0
         - cartopy >=0.18.0
         - holoviews >=1.16.0
@@ -62,7 +62,7 @@ outputs:
 
   - name: {{ name }}
     build:
-      skip: True  # [py<39 or s390x]
+      skip: True  # [py<310 or s390x]
     requirements:
       host:
         - python
@@ -118,5 +118,6 @@ extra:
     - philippjfr
     - maximlt
     - Hoxbro
+    - ahuang11
   skip-lints:
     - host_section_needs_exact_pinnings
