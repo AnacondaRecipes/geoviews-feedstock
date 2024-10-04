@@ -36,7 +36,7 @@ outputs:
         - setuptools
         - wheel
         - packaging
-        - bokeh =3.5
+        - bokeh >=3.5
         - nodejs >=20
         - hatchling
         - hatch-vcs
