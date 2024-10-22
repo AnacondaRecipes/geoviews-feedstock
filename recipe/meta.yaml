@@ -70,7 +70,7 @@ outputs:
         - setuptools
         - wheel
       run:
-        - python #
+        - python
         - {{ pin_subpackage('geoviews-core', exact=True) }}
         - datashader
         - geopandas-base
