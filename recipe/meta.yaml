@@ -12,13 +12,8 @@ source:
 build:
   number: 0
   #skip s390x as lack of nodejs and cartopy dependencies
-  skip: True  # [py<39 or s390x]
-requirements:
-  host:
-    - python
-    - pip
-    - setuptools
-    - wheel
+  skip: True  # [py<310 or s390x]
+
 outputs:
   - name: {{ name }}-core
     script: build_base.sh # [not win]
@@ -33,10 +28,7 @@ outputs:
       host:
         - python
         - pip
-        - setuptools
-        - wheel
-        - packaging
-        - bokeh >=3.5,<3.7
+        - bokeh >=3.5.0,<3.6.0
         - nodejs >=20
         - hatchling
         - hatch-vcs
@@ -80,6 +72,7 @@ outputs:
         - xarray
         - scipy
         - pooch
+        - matplotlib >2.2
     test:
       imports:
         - {{ name }}
