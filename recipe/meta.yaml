@@ -72,7 +72,7 @@ outputs:
         - xarray
         - scipy
         - pooch
-        - matplotlib >2.2
+        - matplotlib-base >2.2
     test:
       imports:
         - {{ name }}
