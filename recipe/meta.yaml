@@ -13,7 +13,12 @@ build:
   number: 0
   #skip s390x as lack of nodejs and cartopy dependencies
   skip: True  # [py<310 or s390x]
-
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
 outputs:
   - name: {{ name }}-core
     script: build_base.sh # [not win]
