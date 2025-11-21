@@ -11,8 +11,7 @@ source:
 
 build:
   number: 0
-  #skip s390x as lack of nodejs and cartopy dependencies
-  skip: true  # [py<310 or s390x]
+  skip: true  # [py<310]
 
 requirements:
   host:
@@ -26,7 +25,7 @@ outputs:
     script: build_base.sh  # [not win]
     script: build_base.bat  # [win]
     build:
-      skip: true  # [py<310 or s390x]
+      skip: true  # [py<310]
       entry_points:
         - geoviews = geoviews.__main__:main
     requirements:
