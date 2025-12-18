@@ -28,7 +28,7 @@ outputs:
     build:
       skip: true  # [py<310]
       entry_points:
-        - geoviews = geoviews.__main__:main
+        - geoviews = geoviews.command:main
     requirements:
       run_constrained:
         - geoviews {{ version }}
@@ -41,7 +41,7 @@ outputs:
         - bokeh ==3.8.*
       run:
         - python
-        - bokeh >=3.6.0
+        - bokeh >=3.8.0
         - cartopy >=0.18.0
         - holoviews >=1.16.0
         - numpy
