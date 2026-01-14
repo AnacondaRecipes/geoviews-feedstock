@@ -17,28 +17,27 @@ requirements:
   host:
     - python
     - pip
-    - hatchling
-    - hatch-vcs
-    - bokeh ==3.8.*
+    - setuptools
+    - wheel
 
 outputs:
-  - name: geoviews-core
+  - name: {{ name }}-core
     script: build_base.sh  # [not win]
     script: build_base.bat  # [win]
     build:
       skip: true  # [py<310]
       entry_points:
-        - geoviews = geoviews.command:main
+        - geoviews = geoviews.__main__:main
     requirements:
       run_constrained:
-        - geoviews {{ version }}
+        - {{ name }} {{ version }}
       host:
         - python
         - pip
+        - bokeh >=3.8.0,<3.9.0
         - nodejs >=20
         - hatchling
         - hatch-vcs
-        - bokeh >=3.8.0,<3.9.0
       run:
         - python
         - bokeh >=3.8.0
@@ -52,35 +51,21 @@ outputs:
         - shapely >=1.8.0
         - xyzservices
     test:
+      requires:
+        - pip
       commands:
         - pip check
       imports:
-        - geoviews
-      requires:
-        - pip
-    about:
-      home: https://geoviews.org
-      license: BSD-3-Clause
-      license_family: BSD
-      license_file: LICENSE
-      summary: GeoViews core library for geographic visualizations
-      description: |
-        GeoViews is built on the HoloViews library for building flexible visualizations of multidimensional data.
-        GeoViews adds a family of geographic plot types based on the Cartopy library,
-        plotted using either the Matplotlib or Bokeh packages.
-      doc_url: https://geoviews.org
-      dev_url: https://github.com/holoviz/geoviews
-
-  - name: geoviews
+        - {{ name }}
+  - name: {{ name }}
     build:
-      skip: true  # [py<310]
+      skip: true  # [py<310 or s390x]
     requirements:
       host:
         - python
         - pip
-        - hatchling
-        - hatch-vcs
-        - bokeh ==3.8.*
+        - setuptools
+        - wheel
       run:
         - python
         - {{ pin_subpackage('geoviews-core', exact=True) }}
@@ -95,11 +80,11 @@ outputs:
         - matplotlib-base >2.2
     test:
       imports:
-        - geoviews
-      commands:
-        - pip check
+        - {{ name }}
       requires:
         - pip
+      commands:
+        - pip check
     about:
       home: https://geoviews.org
       license: BSD-3-Clause
