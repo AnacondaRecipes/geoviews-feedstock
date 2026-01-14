@@ -58,6 +58,18 @@ outputs:
         - geoviews
       requires:
         - pip
+    about:
+      home: https://geoviews.org
+      license: BSD-3-Clause
+      license_family: BSD
+      license_file: LICENSE
+      summary: GeoViews core library for geographic visualizations
+      description: |
+        GeoViews is built on the HoloViews library for building flexible visualizations of multidimensional data.
+        GeoViews adds a family of geographic plot types based on the Cartopy library,
+        plotted using either the Matplotlib or Bokeh packages.
+      doc_url: https://geoviews.org
+      dev_url: https://github.com/holoviz/geoviews
 
   - name: geoviews
     build:
