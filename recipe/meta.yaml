@@ -57,6 +57,17 @@ outputs:
         - pip check
       imports:
         - {{ name }}
+    about:
+      home: https://geoviews.org
+      license: BSD-3-Clause
+      license_family: BSD
+      license_file: LICENSE
+      summary: Core package for GeoViews with minimal dependencies
+      description: |
+        GeoViews is a Python library that makes it easy to explore and visualize geographical, meteorological, and oceanographic datasets.
+        This is the core package with minimal dependencies.
+      doc_url: https://geoviews.org
+      dev_url: https://github.com/holoviz/geoviews
   - name: {{ name }}
     build:
       skip: true  # [py<310 or s390x]
