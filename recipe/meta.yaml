@@ -70,13 +70,11 @@ outputs:
       dev_url: https://github.com/holoviz/geoviews
   - name: {{ name }}
     build:
-      skip: true  # [py<310 or s390x]
+      skip: true  # [py<310]
     requirements:
       host:
         - python
         - pip
-        - setuptools
-        - wheel
       run:
         - python
         - {{ pin_subpackage('geoviews-core', exact=True) }}
