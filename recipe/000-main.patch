@@ -1,0 +1,13 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index a7f6b5d..08b60f9 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -70,7 +70,7 @@ recommended = [
+ tests = ['psutil', 'pytest', 'pytest-xdist']
+ 
+ [project.scripts]
+-geoviews = "geoviews.command:main"
++geoviews = "geoviews.__main__:main"
+ 
+ [tool.hatch.version]
+ source = "vcs"
