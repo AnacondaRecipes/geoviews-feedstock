@@ -27,7 +27,7 @@ outputs:
     script: build_base.sh  # [not win]
     script: build_base.bat  # [win]
     build:
-      skip: true  # [py<310]
+      skip: true  # [py<312]
     requirements:
       run_constrained:
         - {{ name }} {{ version }}
@@ -70,7 +70,7 @@ outputs:
       dev_url: https://github.com/holoviz/geoviews
   - name: {{ name }}
     build:
-      skip: true  # [py<310]
+      skip: true  # [py<312]
     requirements:
       host:
         - python
