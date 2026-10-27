@@ -19,7 +19,7 @@ requirements:
   host:
     - python
     - pip
-    - bokeh >=3.8.0,<3.9.0
+    - bokeh >=3.10.0,<3.11.0
     - nodejs >=20
     - hatchling
     - hatch-vcs
@@ -38,18 +38,18 @@ outputs:
       host:
         - python
         - pip
-        - bokeh >=3.8.0,<3.9.0
+        - bokeh >=3.10.0,<3.11.0
         - nodejs >=20
         - hatchling
         - hatch-vcs
       run:
         - python
-        - bokeh >=3.8.0
+        - bokeh >=3.10.0
         - cartopy >=0.18.0
         - holoviews >=1.16.0
         - numpy >=1.0
         - packaging
-        - panel >=1.0.0
+        - panel >=1.10.0
         - param >=1.9.3,<3.0
         - pyproj
         - shapely >=1.8.0
