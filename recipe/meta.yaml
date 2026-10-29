@@ -1,5 +1,5 @@
 {% set name = "geoviews" %}
-{% set version = "1.15.1" %}
+{% set version = "1.16.0" %}
 
 package:
   name: {{ name }}-split
@@ -7,19 +7,17 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c72097ef4f24895c46f95834e5c19ac185ea1c34fd610f0f956421ba515d4aad
-  patches:
-    - 000-main.patch
+  sha256: 7ce377c3a7aedc1aaf1a97f412be514d9bc426acfbe671d703b369a2b99a1784
 
 build:
   number: 0
-  skip: true  # [py<310]
+  skip: true  # [py<312]
 
 requirements:
   host:
     - python
     - pip
-    - bokeh >=3.8.0,<3.9.0
+    - bokeh >=3.10.0,<3.11.0
     - nodejs >=20
     - hatchling
     - hatch-vcs
@@ -29,27 +27,25 @@ outputs:
     script: build_base.sh  # [not win]
     script: build_base.bat  # [win]
     build:
-      skip: true  # [py<310]
-      entry_points:
-        - geoviews = geoviews.__main__:main
+      skip: true  # [py<312]
     requirements:
       run_constrained:
         - {{ name }} {{ version }}
       host:
         - python
         - pip
-        - bokeh >=3.8.0,<3.9.0
+        - bokeh >=3.10.0,<3.11.0
         - nodejs >=20
         - hatchling
         - hatch-vcs
       run:
         - python
-        - bokeh >=3.8.0
+        - bokeh >=3.10.0
         - cartopy >=0.18.0
         - holoviews >=1.16.0
         - numpy >=1.0
         - packaging
-        - panel >=1.0.0
+        - panel >=1.10.0
         - param >=1.9.3,<3.0
         - pyproj
         - shapely >=1.8.0
@@ -74,7 +70,7 @@ outputs:
       dev_url: https://github.com/holoviz/geoviews
   - name: {{ name }}
     build:
-      skip: true  # [py<310]
+      skip: true  # [py<312]
     requirements:
       host:
         - python
